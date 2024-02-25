@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MySUS</title>
+
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<!-- scripts and styles -->
+	<link rel="stylesheet" href="../css/botao.css">
+	<link rel="stylesheet" href="../css/output.css">
+	<script src="../js/scripts.js"></script>
+	<script src="../js/gallery.js"></script>
+	<script src="../js/process.js"></script>
+
+</head>
+<body onload="themeOnLoad()" oncontextmenu="return false;" ondragstart="return false;">
+
+	<!-- SPLASH -->
+
+	<section id="splash" class="fixed h-screen w-screen bg-gray-900 ml-24 z-40 place-items-center grid gap-4 transition-opacity duration-700 ease-in pointer-events-none">
+		<div class="bg-gray-500 w-72 h-72 animate-ping"></div>
+		<div class="bg-gray-400 w-52 h-52 animate-ping"></div>
+		<div class="bg-white w-48 h-48"></div>
+		<svg width="80" height="88" fill="none" xmlns="http://www.w3.org/2000/svg" class="z-40">
+			<path fill="#000" fill-rule="evenodd" clip-rule="evenodd" d="M58.899 19.012a6.931 6.931 0 0 1-4.91 2.043 7.055 7.055 0 0 1-4.975-2.081 7.117 7.117 0 0 1-2.07-4.997C46.945 6.55 41.384.597 34.222 0a1.222 1.222 0 0 0-1.145.778c-.06.153-.09.316-.086.48l-.007 9.053.004 3.666c0 3.906-3.07 7.078-6.918 7.078a7.042 7.042 0 0 1-4.964-2.043L12.556 8.238a3.19 3.19 0 0 0-3.02-1.217C3.935 7.866.003 12.672.003 18.48L0 76.4C0 82.807 5.12 88 11.432 88h57.136C74.884 88 80 82.808 80 76.4V18.48c0-5.808-3.931-10.614-9.535-11.46a3.168 3.168 0 0 0-3.017 1.214l-8.549 10.778Zm9.642 55.631c-.005.486-.2.95-.543 1.293a1.84 1.84 0 0 1-1.29.54l-15.295-.008c-2.99 0-5.58 1.707-7.028 4.412a3.57 3.57 0 0 1-1.3 1.329 3.55 3.55 0 0 1-1.79.492h-1.33c-1.325 0-2.476-.739-3.237-2.024a7.772 7.772 0 0 0-2.85-3.07 7.727 7.727 0 0 0-4.023-1.139H13.276a1.836 1.836 0 0 1-1.292-.54 1.852 1.852 0 0 1-.54-1.296l.015-22.609c0-1.01.732-1.89 1.73-1.89h16.666c2.983 0 5.574 1.71 7.025 4.408a3.528 3.528 0 0 0 3.086 1.821h1.33c1.321 0 2.475-.735 3.233-2.016a7.792 7.792 0 0 1 2.856-3.073 7.747 7.747 0 0 1 4.028-1.14l15.364.008c1.006 0 1.787.826 1.787 1.836l-.023 22.666Z"/>
+		</svg>
+		<div id="splash-sidebar">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			</div>
+	</section>
+
+	<!-- SIDEBAR -->
+
+	<section id="sidebar" class="fixed top-0 left-0 h-screen w-24 m-0 flex flex-col bg-white text-black shadow-lg dark:bg-black dark:text-white transition-all duration-200 ease-linear z-30">
+
+		<!-- navigation icons -->
+
+		<button id="home-sidebar"
+			onclick="goTo('home')"
+			class="relative flex font-medium items-center justify-center h-16 w-16 m-4 p-4 rounded-xl regular-button hover:bg-gray-900 dark:hover:bg-gray-300 dark:hover:text-opacity-0 hover:w-32 active:scale-95 active:opacity-80 origin-left transition-all duration-200 ease-out cursor-pointer group">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 group-hover:opacity-0 duration-100 transition-all ease-linear">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+			</svg>
+			<p class="absolute opacity-0 text-white text-center text-xl dark:text-black group-hover:opacity-100 transition-all duration-75 group-hover:duration-400 ease-linear">
+				Home
+			</p>
+		</button>
+
+		<button id="gallery-sidebar"
+			onclick="goTo('gallery')"
+			class="relative flex font-medium items-center justify-center h-16 w-16 m-4 p-4 rounded-xl regular-button hover:bg-gray-900 dark:hover:bg-gray-300 dark:hover:text-opacity-0 hover:w-32 active:scale-95 active:opacity-80 origin-left transition-all duration-200 ease-out cursor-pointer group">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 group-hover:opacity-0 duration-100 transition-all ease-linear">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+			</svg>
+			<p class="absolute opacity-0 text-white text-center text-xl dark:text-black group-hover:opacity-100 transition-all duration-75 group-hover:duration-400 ease-linear">
+				Gallery
+			</p>
+		</button>
+
+		<button id="process-sidebar"
+			onclick="goTo('process')"
+			class="relative flex font-medium items-center justify-center h-16 w-16 m-4 p-4 rounded-xl regular-button hover:bg-gray-900 dark:hover:bg-gray-300 dark:hover:text-opacity-0 hover:w-32 active:scale-95 active:opacity-80 origin-left transition-all duration-200 ease-out cursor-pointer group">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 group-hover:opacity-0 duration-100 transition-all ease-linear">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+			</svg>
+			<p class="absolute opacity-0 text-white text-center text-xl dark:text-black group-hover:opacity-100 transition-all duration-75 group-hover:duration-400 ease-linear">
+				Process
+			</p>
+		</button>
+
+		<button id="about-sidebar"
+			onclick="goTo('about')"
+			class="relative flex font-medium items-center justify-center h-16 w-16 m-4 p-4 rounded-xl regular-button hover:bg-gray-900 dark:hover:bg-gray-300 dark:hover:text-opacity-0 hover:w-32 active:scale-95 active:opacity-80 origin-left transition-all duration-200 ease-out cursor-pointer group">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 group-hover:opacity-0 duration-100 transition-all ease-linear">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+			</svg>
+			<p class="absolute opacity-0 text-white text-center text-xl dark:text-black group-hover:opacity-100 transition-all duration-75 group-hover:duration-400 ease-linear">
+				About
+			</p>
+		</button>
+
+		<!-- logout -->
+
+		<button id="logout-sidebar"
+			onclick="login()"
+			class="fixed flex font-medium items-center justify-center h-16 w-16 m-4 p-4 rounded-xl regular-button hover:bg-gray-900 dark:hover:bg-gray-300 dark:hover:text-opacity-0 hover:w-32 active:scale-95 active:opacity-80 origin-left transition-all duration-200 ease-out cursor-pointer group">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 group-hover:opacity-0 duration-100 transition-all ease-linear">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+			</svg>
+			<p class="absolute opacity-0 text-white text-center text-xl dark:text-black group-hover:opacity-100 transition-all duration-75 group-hover:duration-400 ease-linear">
+				Logout
+			</p>
+		</button>
+
+		<!-- upload -->
+
+		<button id="upload-sidebar"
+			onclick="goTo('upload')"
+			class="fixed flex font-medium items-center justify-center h-16 w-16 m-4 p-4 rounded-xl bottom-[96px] regular-button hover:bg-gray-900 dark:hover:bg-gray-300 dark:hover:text-opacity-0 hover:w-32 active:scale-95 active:opacity-80 origin-left transition-all duration-200 ease-out cursor-pointer group">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 group-hover:opacity-0 duration-100 transition-all ease-linear">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+			</svg>
+			<p class="absolute opacity-0 text-white text-center text-xl dark:text-black group-hover:opacity-100 transition-all duration-75 group-hover:duration-400 ease-linear">
+				Upload
+			</p>
+		</button>
+
+		<!-- settings -->
+
+		<button onclick="incrementThemeNum()" id="settings" class="fixed flex bottom-0 items-center justify-center h-16 w-16 m-4 p-4 bg-gray-900 text-white rounded-xl dark:bg-gray-300 dark:text-black active:scale-95 active:opacity-80 origin-center transition-all duration-200 ease-out cursor-pointer group">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+				<path stroke-linecap="round" stroke-linejoin="round" d="" />
+			</svg>
+		</button>
+	</section>
+
+	<!-- POP-UPS -->
+
+	<section id="login" class="absolute w-screen z-30 backdrop-blur-lg bg-gray-900 bg-opacity-70 pointer-events-none opacity-100 transition-opacity duration-200 ease-out">
+		<div class="hero min-h-screen">
+			<div class="hero-content">
+				<div class="card w-96 max-h-sm shadow-2xl text-black dark:text-white bg-white dark:bg-gray-800">
+					<div class="card-body">
+						<label class="label font-medium text-center text-xl text-red-700 dark:text-red-400">This website is only available to registered members.</label>
+					<div class="form-control">
+						<label class="label">
+						<span class="label-text">Username</span>
+						</label>
+						<input id="username-login" type="text" placeholder="Enter your username here" class="input input-ghost dark:input" />
+					</div>
+					<div class="form-control">
+						<label class="label">
+						<span class="label-text">Password</span>
+						</label>
+						<input id="password-login" type="password" placeholder="Enter your password here" class="input input-ghost dark:input" />
+						<label class="label">
+							<a onclick="login(1)" class="label-text-alt link link-hover">Not yet a member? Register now!</a>
+						</label>
+					</div>
+					<div class="form-control mt-6 flex flex-row">
+						<button onclick="loginAction()" class="btn btn-outline btn-accent flex-auto mr-3">Login</button>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="signup" class="absolute w-screen z-30 backdrop-blur-lg bg-gray-900 bg-opacity-70 pointer-events-none opacity-100 transition-opacity duration-200 ease-out">
+		<div class="hero min-h-screen">
+			<div class="hero-content">
+				<div class="card w-96 max-h-sm shadow-2xl text-black dark:text-white bg-white dark:bg-gray-800">
+					<div class="card-body">
+					<div class="form-control">
+						<label class="label">
+						<span class="label-text">Username</span>
+						</label>
+						<input id="new-username-login" type="text" placeholder="Enter your username here" class="input input-ghost dark:input" />
+					</div>
+					<div class="form-control">
+						<label class="label">
+						<span class="label-text">Password</span>
+						</label>
+						<input id="new-password-login" type="password" placeholder="Enter your password here" class="input input-ghost dark:input" />
+						<label class="label">
+							<a onclick="login(0)" class="label-text-alt link link-hover">Already a member? Login!</a>
+						</label>
+					</div>
+					<div class="form-control mt-6 flex flex-row">
+						<button onclick="registerAction()" class="btn btn-outline btn-accent flex-auto mr-3">Register</button>
+						<button onclick="login(0)" class="btn btn-outline">Cancel</button>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="upload" class="absolute w-screen h-screen z-30 backdrop-blur-lg bg-gray-900 bg-opacity-70 pointer-events-none opacity-0 transition-opacity duration-200 ease-out">
+		<div class="flex justify-center items-center">
+			<div class="hero-content min-h-screen">
+				<div class="card w-96 max-h-sm shadow-2xl text-black dark:text-white bg-white dark:bg-gray-800">
+					<div class="card-body">
+						<div class="form-control mb-5 flex flex-row">
+							<label id="add_file_button" for="file-picker" class="btn btn-outline btn-primary flex-auto">Choose a file</label>
+							<input type="file" id="file-picker" class="hidden" onchange="updatePhoto(event)">
+						</div>
+						<div class="form-control">
+							<label class="label">
+								<span id="author-label" class="label-text">Author Name</span>
+							</label>
+							<input id="authorImg" type="text" placeholder="Enter your name here" class="input input-ghost dark:input" />
+						</div>
+						<div class="form-control">
+							<label class="label">
+								<span id="image-label" class="label-text">Image Name</span>
+							</label>
+							<input id="nameImg" type="text" placeholder="Enter the image name here" class="input input-ghost dark:input" />
+						</div>
+						<div class="form-control mt-6 flex flex-row">
+							<button id="uploadbutton" onclick="uploadImage()" class="btn btn-outline btn-accent flex-auto mr-3">Upload</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hidden ml-16" id="image_display_area">
+				<img src="" class="rounded-2xl bg-black bg-opacity-50 max-h-[32rem] max-w-[64rem]" id="photo"></img>
+			</div>
+		</div>
+	</section>
+
+	<!-- PAGES -->
+
+	<section id="pages" class="absolute h-full width-screen ml-24 z-10">
+		<div id="home" class="flex justify-center min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200 ease-linear">
+			<svg width="1080" height="720" viewBox="0 0 1080 720" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-black dark:fill-green-500 block m-auto transition-colors duration-200 ease-linear">
+				<path d="M524.631 307.482L486.781 309.866C486.134 306.555 484.743 303.576 482.608 300.928C480.473 298.214 477.658 296.062 474.164 294.473C470.735 292.818 466.627 291.991 461.839 291.991C455.434 291.991 450.031 293.381 445.631 296.161C441.232 298.876 439.032 302.517 439.032 307.085C439.032 310.726 440.455 313.805 443.302 316.321C446.149 318.836 451.034 320.856 457.957 322.378L484.937 327.939C499.43 330.985 510.235 335.884 517.352 342.637C524.469 349.39 528.028 358.261 528.028 369.251C528.028 379.248 525.149 388.02 519.39 395.567C513.697 403.114 505.868 409.007 495.904 413.244C486.005 417.415 474.585 419.5 461.645 419.5C441.911 419.5 426.189 415.296 414.478 406.888C402.832 398.414 396.006 386.894 394 372.329L434.665 370.145C435.894 376.302 438.87 381.002 443.593 384.246C448.316 387.424 454.366 389.013 461.742 389.013C468.988 389.013 474.811 387.59 479.211 384.743C483.675 381.83 485.94 378.089 486.005 373.521C485.94 369.681 484.355 366.537 481.249 364.087C478.144 361.571 473.356 359.651 466.886 358.327L441.07 353.064C426.512 350.085 415.675 344.921 408.558 337.572C401.505 330.224 397.979 320.856 397.979 309.468C397.979 299.67 400.567 291.229 405.743 284.145C410.984 277.061 418.328 271.6 427.774 267.76C437.285 263.92 448.413 262 461.16 262C479.987 262 494.804 266.072 505.609 274.215C516.479 282.358 522.819 293.447 524.631 307.482Z" />
+				<path d="M649.657 351.574V263.986H691.001V416.521H651.307V388.814H649.755C646.39 397.752 640.793 404.935 632.965 410.364C625.201 415.793 615.722 418.507 604.529 418.507C594.565 418.507 585.798 416.19 578.228 411.555C570.658 406.921 564.738 400.334 560.467 391.794C556.262 383.253 554.127 373.025 554.062 361.108V263.986H595.406V353.561C595.47 362.564 597.832 369.681 602.491 374.911C607.149 380.142 613.393 382.757 621.221 382.757C626.203 382.757 630.862 381.598 635.197 379.281C639.532 376.898 643.026 373.389 645.678 368.754C648.396 364.12 649.722 358.393 649.657 351.574Z" />
+				<path d="M848.103 307.482L810.253 309.866C809.606 306.555 808.215 303.576 806.08 300.928C803.945 298.214 801.13 296.062 797.636 294.473C794.207 292.818 790.099 291.991 785.311 291.991C778.906 291.991 773.503 293.381 769.103 296.161C764.704 298.876 762.504 302.517 762.504 307.085C762.504 310.726 763.927 313.805 766.774 316.321C769.621 318.836 774.506 320.856 781.429 322.378L808.409 327.939C822.902 330.985 833.707 335.884 840.824 342.637C847.941 349.39 851.5 358.261 851.5 369.251C851.5 379.248 848.621 388.02 842.862 395.567C837.169 403.114 829.34 409.007 819.376 413.244C809.477 417.415 798.057 419.5 785.117 419.5C765.383 419.5 749.661 415.296 737.95 406.888C726.304 398.414 719.478 386.894 717.472 372.329L758.137 370.145C759.366 376.302 762.342 381.002 767.065 384.246C771.788 387.424 777.838 389.013 785.214 389.013C792.46 389.013 798.284 387.59 802.683 384.743C807.148 381.83 809.412 378.089 809.477 373.521C809.412 369.681 807.827 366.537 804.721 364.087C801.616 361.571 796.828 359.651 790.358 358.327L764.542 353.064C749.984 350.085 739.147 344.921 732.03 337.572C724.977 330.224 721.451 320.856 721.451 309.468C721.451 299.67 724.039 291.229 729.215 284.145C734.456 277.061 741.8 271.6 751.246 267.76C760.757 263.92 771.886 262 784.632 262C803.46 262 818.276 266.072 829.081 274.215C839.951 282.358 846.292 293.447 848.103 307.482Z" />
+				<path d="M34 419.5V263.97H50.4414V287.216H51.962C54.8765 279.401 59.7233 273.262 66.5026 268.796C73.3453 264.265 81.5502 262 91.1172 262C101.191 262 109.459 264.462 115.922 269.387C122.448 274.247 127.326 280.945 130.558 289.481H131.793C135.088 281.076 140.441 274.411 147.854 269.486C155.331 264.495 164.391 262 175.035 262C188.593 262 199.301 266.432 207.157 275.297C215.014 284.097 218.942 296.967 218.942 313.909V419.5H202.025V313.909C202.025 301.958 199.079 292.994 193.187 287.019C187.295 281.043 179.533 278.055 169.903 278.055C158.752 278.055 150.167 281.601 144.148 288.693C138.129 295.785 135.119 304.781 135.119 315.682V419.5H117.823V312.333C117.823 302.089 115.067 293.815 109.554 287.511C104.042 281.207 96.2809 278.055 86.2703 278.055C79.5544 278.055 73.5037 279.763 68.1183 283.177C62.7962 286.592 58.5829 291.353 55.4784 297.46C52.4372 303.501 50.9166 310.462 50.9166 318.341V419.5H34Z" />
+				<path d="M270.286 472C266.928 472 263.791 471.672 260.877 471.015C257.963 470.358 255.65 469.636 253.939 468.848L258.501 453.384C264.267 455.222 269.399 455.879 273.897 455.354C278.395 454.894 282.387 452.793 285.872 449.05C289.356 445.372 292.461 439.725 295.185 432.108L300.507 416.742L246.812 263.97H265.154L308.491 392.117H309.821L353.158 263.97H371.5L309.726 439.2C307.128 446.489 303.929 452.563 300.127 457.422C296.326 462.347 291.922 465.992 286.917 468.356C281.975 470.785 276.431 472 270.286 472Z" />
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M1020.33 396.906C1022.29 396.906 1023.94 395.296 1023.94 393.32L1023.99 348.894C1023.99 346.908 1022.44 345.289 1020.47 345.289L990.217 345.27C984.336 345.27 979.231 348.624 976.669 353.531C975.173 356.046 972.902 357.483 970.302 357.483H967.685C965.076 357.483 962.804 356.046 961.607 353.916C958.747 348.624 953.651 345.27 947.78 345.27H914.963C913 345.27 911.56 346.995 911.56 348.981L911.532 393.301C911.532 395.287 913.178 396.896 915.141 396.896H947.78C953.651 396.896 958.747 400.241 961.308 405.147C962.804 407.663 965.076 409.109 967.685 409.109H970.302C972.902 409.109 975.173 407.663 976.379 405.543C979.231 400.241 984.336 396.896 990.217 396.896L1020.33 396.906ZM995.293 288.274C999.052 288.274 1002.47 286.742 1004.96 284.264L1021.79 263.145C1022.95 261.651 1024.73 260.687 1026.74 260.687C1027.09 260.687 1027.41 260.716 1027.73 260.765C1038.76 262.422 1046.5 271.84 1046.5 283.223V396.762C1046.5 409.321 1036.43 419.5 1024 419.5H911.504C899.079 419.5 889 409.321 889 396.762L889.009 283.223C889.009 271.84 896.751 262.422 907.774 260.765C908.091 260.716 908.428 260.687 908.746 260.687C910.775 260.687 912.56 261.651 913.72 263.145L930.549 284.264C933.026 286.742 936.56 288.274 940.319 288.274C947.901 288.274 953.941 282.057 953.941 274.394L953.932 267.213L953.95 249.468C953.95 248.089 955.007 247 956.372 247C970.471 248.166 981.419 259.839 981.419 274.394C981.419 282.057 987.702 288.274 995.293 288.274Z" />
+				</svg>				
+		</div>
+
+		<div id="gallery" class="absolute min-h-screen width-screen text-black dark:text-white bg-white dark:bg-gray-900 transition-colors duration-200 ease-linear">
+			<div class="flex justify-center mx-10">
+				<div id="showimages" class="gap-24 grid justify-center items-center grid-cols-4">
+				</div>
+			</div>
+		</div>
+
+		<div id="process" class="min-h-screen text-black dark:text-white bg-white dark:bg-gray-900 transition-colors duration-200 ease-linear">
+			<p style = "text-align: center; font-size: 40px;">PROCESS PAGE</p>
+			<div class = "opcao">
+				<label for = "processo" style = "margin-left: 25px;">Choose an algorithm to process the image: </label>
+				<select id="process_select" name = "processo">
+					<option value = "option1">Black and white</option>
+					<option value = "option2">Sépia</option>
+					<option value = "option3">Borders</option>
+				</select>
+				<br>
+				<label for="number" style = "margin-left:25px">Image Number: </label>
+				<input type="number" id="fname" name="number" value="" style="background-color: rgb(100, 95, 95); margin-left:10px; margin-top:10px">
+				<br>
+				<button onclick="sendinfo2()" class="button btn btn-accent dark:btn-neutral" type = "submit" style = "margin-left: 25px; margin-top: 25px;">
+					<span class="submit">Submit</span>
+					<span class="loading"><i class="fa fa-refresh"></i></span>
+					<span class="check"><i class="fa fa-check"></i></span>
+				</button>
+			</div>
+			<br>
+			<br>
+			<div>
+				<h1 style = "font-size:25px; margin-left: 100px;">Original Image:</h1>
+				<div id="imageoriginal" style = "margin-left: 100px;">
+				</div>
+				<br><br>
+				<h1 style = "font-size:25px; margin-left: 100px;">Processed image:</h1>
+				<div id="imagefilter" style = " margin-left: 100px; margin-top:100px">
+					
+				</div>
+			</div>
+		</div>
+
+		<div id="about" class="h-screen bg-white dark:bg-gray-900">
+            <img class="" src="images/uni_photo.jpeg" alt="Foto da Universidade">
+            <div class="flex h-f text-center bg-white dark:bg-gray-900 justify-center align-center font-light text-base text-black dark:text-white">  
+                <div class="block py-[5%] w-[70%] justify-center">
+                    <h1 class="">Universidade de Aveiro</h1>
+                    <p>Este trabalho é o projeto final da cadeira 'Laboratórios de Informática'<br> 
+                        do curso 'Licenciatura em Engenharia de Computadores e Informática'</p>
+                    <h1>Autores:</h1>
+                    <p>Bernardo Marujo - Contribuição: 25%<br>
+                        Diogo Carvalho&nbsp;&nbsp;&nbsp;- Contribuição: 25%<br>
+                        Rui Rosmaninho&nbsp;&nbsp;- Contribuição: 25%<br>
+                        Simão Almeida &nbsp;&nbsp;&nbsp;- Contribuição: 25%</p>
+                    <br>
+                    <a class="bg-blue-600 duration-500 text-white mx-24 mb-5
+                        text-xl py-1 px-5 rounded-2xl" href="https://github.com/detiuaveiro/projeto-final-labi2023g7.git">Repositório no GitHub</a>
+                </div>  
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.968389997939!2d-8.660037023494562!3d40.630579071405954!2m3!1f0!2f
+                    0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd23a2aa4e1bda2b%3A0xd70b976749475485!2sUniversidade%20de%20Aveiro!5e0!3m2!1spt-PT!2spt!4v1686967
+                    164094!5m2!1spt-PT!2spt" width="30%" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>       
+            </div>
+        </div>
+	</section>
+</body>
+</html>

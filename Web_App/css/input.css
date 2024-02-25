@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* SPLASH */
+    #splash div:not(#splash-sidebar):not(#splash-sidebar *) {
+        @apply absolute rounded-full shadow-xl;
+    }
+    #splash-sidebar {
+        @apply fixed top-0 left-0 h-screen w-24 m-0
+		flex flex-col bg-gray-800 text-black shadow-lg;
+    }
+    #splash-sidebar div:not(:nth-last-child(2)):not(:last-child) {
+        @apply relative flex items-center justify-center h-16 w-16 mt-4 mb-4 mx-4 p-4
+        bg-gray-900 text-white rounded-xl animate-pulse-fast;
+    }
+    #splash-sidebar div:nth-last-child(2) {
+        @apply fixed flex bottom-[96px] items-center justify-center h-16 w-16 mt-4 mb-4 mx-4 p-4
+        bg-gray-900 text-white rounded-xl animate-pulse-fast;
+    }
+    #splash-sidebar div:last-child {
+        @apply fixed flex bottom-0 items-center justify-center h-16 w-16 mt-4 mb-4 mx-4 p-4
+        bg-gray-900 text-white rounded-xl animate-pulse-fast;
+    }
+
+    /* SIDEBAR */
+    #sidebar {
+        @apply fixed top-0 left-0 h-screen w-24 m-0
+		flex flex-col bg-white text-black shadow-lg
+		dark:bg-black dark:text-white transition-all duration-200 ease-linear z-30;
+    }
+}
+
+.regular-button {
+    --tw-bg-opacity: 1;
+    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.regular-button-dark {
+    --tw-bg-opacity: 1;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.animate-pulse-fast {
+    animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.width-screen {
+    width: calc(100vw - 96px);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}

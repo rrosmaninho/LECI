@@ -1,0 +1,16 @@
+$TTL 604800
+$ORIGIN NewNet.pt.
+@ IN SOA www.NewNet.pt. adm.NewNet.pt. (
+                2 ; Serial
+                604800 ; Refresh
+                86400 ; Retry
+                2419200 ; Expire
+                604800) ; Negative Cache TTL
+     IN NS ns1.NewNet.pt.
+ns1  IN A  201.130.13.1
+@    IN A  201.130.13.1
+www  IN A  201.130.13.1
+
+ns1  IN AAAA 2002:8886:5932:1100:0000:0000:0000:0001
+@    IN AAAA 2002:8886:5932:1100:0000:0000:0000:0001
+www  IN AAAA 2002:8886:5932:1100:0000:0000:0000:0001

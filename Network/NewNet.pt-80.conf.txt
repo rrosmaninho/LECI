@@ -1,0 +1,5 @@
+<VirtualHost *:80>
+    DocumentRoot /var/www/html/NewNet.pt-80/html
+    ServerName NewNet_ISP
+    ServerAlias www.NewNet.pt
+</VirtualHost>

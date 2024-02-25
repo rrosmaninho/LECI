@@ -1,0 +1,5 @@
+<VirtualHost *:80>
+    DocumentRoot /var/www/html/GR8.pt-80/html
+    ServerName GR8_Inc
+    ServerAlias www.GR8.pt
+</VirtualHost>
